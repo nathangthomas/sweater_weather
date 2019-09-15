@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :forcast do
+  factory :forecast do
     city { "MyString" }
     state { "MyString" }
     country { "MyString" }
