@@ -4,7 +4,8 @@ class Api::V1::ForecastController < ApplicationController
     render json: Forecast.all
   end
 
-  def show
-  end
+  # def show
+  #   render json: Forecast.find(params[:id])
+  # end
 
 end
