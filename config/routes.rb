@@ -13,4 +13,10 @@ Rails.application.routes.draw do
       resources :coordinates, only: [:index, :show]
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :gifs , only: [:index]
+    end 
+  end
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'GiphyController' do
    it 'sends a list of giphs for each days weather' do
-    create_list(:gify, 14)
+    create_list(:giphy, 14)
 
     get '/api/v1/gifs?location=denver,co'
 
