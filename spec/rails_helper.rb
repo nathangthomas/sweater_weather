@@ -33,4 +33,18 @@ def stub_forecast_api_response
   forecast = File.read("./fixtures/forecast.json")
   stub_request(:get, "https://api.darksky.net/forecast/#{ENV["DARK_SKY_API_KEY"]}/39.7392358,-104.990251?exclude=minutely,alerts,flags").to_return(status:200, body:forecast)
 
+
+
+end
+
+def stub_gifs_api_calls
+  coordinates = File.read("./fixtures/coordinates.json")
+  stub_request(:get, "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV["GOOGLE_API_KEY"]}&address=denver").to_return(status:200, body:coordinates)
+
+  forecast = File.read("./fixtures/hourly_forecast.json")
+  stub_request(:get, "https://api.darksky.net/forecast/#{ENV["DARK_SKY_API_KEY"]}/39.7392358,-104.990251?exclude=minutely,alerts,flags").to_return(status:200, body:forecast)
+
+  gif = File.read("./fixtures/gif.json")
+  stub_request(:get, "https://api.giphy.com/v1/gifs/search?api_key=#{ENV["GIPHY_API_KEY"]}&q='Mostly cloudy throughout the day.'&limit=1").to_return(status:200, body:gif)
+
 end
