@@ -1,27 +1,20 @@
-class Api::V1::ForecastController < ApplicationController
+class Api::V1::CoordinatesController < ApplicationController
 
   # def index
-  #  render json: Forecast.all
+  #   render json: Forecast.all
   # end
 
+  def index
+    render locals: { facade: WeatherFacade.new }
+  end
+
   def show
-    ForecastFacade.new(params:location)
-    forecast = ForecastFacade.forecast_data
+    coordinates = CoordinateFacade.find_coordinates(params[:location])
+    render json: CoordinateService.new(coordinates)
   end
 end
 
-
-
 #
-#   def index
-#     render locals: { facade: WeatherFacade.new }
-#   end
-#
-  # def show
-  #   # render locals:{facade: ForecastFacade.new(params:location)}
-  #   render json: facasde.forecast.find(params[:locations])
-  # end
-
 #   def create
 #     render json: Forecast.new(forecast_params)
 #   end
@@ -39,3 +32,4 @@ end
 #     def forecast_params
 #       params.require(:forecast).permit(:temperature, :high, :low, :humidity, :visability, :uv_index)
 #     end
+# end

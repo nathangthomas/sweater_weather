@@ -1,9 +1,6 @@
 FactoryBot.define do
   factory :forecast do
-    city { "MyString" }
-    state { "MyString" }
-    country { "MyString" }
-    temperature { "MyString" }
+    temperature { 1.5 }
     high { 1.5 }
     low { 1.5 }
     humidity { 1.5 }

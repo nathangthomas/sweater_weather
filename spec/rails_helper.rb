@@ -28,3 +28,9 @@ def stub_forecast_api_calls
   forecast = File.read("./fixtures/forecast.json")
   stub_request(:get, "https://api.darksky.net/forecast/#{ENV["DARK_SKY_API_KEY"]}/39.7392358,-104.990251?exclude=minutely,alerts,flags").to_return(status:200, body:forecast)
 end
+
+def stub_forecast_api_response
+  forecast = File.read("./fixtures/forecast.json")
+  stub_request(:get, "https://api.darksky.net/forecast/#{ENV["DARK_SKY_API_KEY"]}/39.7392358,-104.990251?exclude=minutely,alerts,flags").to_return(status:200, body:forecast)
+
+end
