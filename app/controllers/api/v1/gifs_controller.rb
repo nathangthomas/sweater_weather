@@ -1,7 +1,7 @@
-class Api::V1::GifController < ApplicationController
+class Api::V1::GifsController < ApplicationController
 
   def index
-   # render json: Gif.all
+   render json: Gif.all
   end
 
 private

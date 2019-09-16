@@ -7,8 +7,8 @@ describe 'GiphyController' do
     get '/api/v1/gifs?location=denver,co'
 
     expect(response).to be_successful
-    giphs = JSON.parse(response.body)
+    gifs = JSON.parse(response.body)
 
-    expect(:gify.count).to eq(14)
+    expect(gifs.count).to eq(14)
   end
 end
