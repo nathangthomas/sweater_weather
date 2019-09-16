@@ -6,11 +6,13 @@ class Api::V1::GifsController < ApplicationController
     hourly_data.map do |hour|
       summary = hour[:summary]
       #I realize you said daily summary... I only pulled the hourly summary in my forecast API call. I'll have to go back and fix that.
-      response = Faraday.get "https://api.giphy.com/v1/gifs/search?api_key=#{ENV["GIPHY_API_KEY"]}=#{summary}&limit=1"
+      response = Faraday.get "https://api.giphy.com/v1/gifs/search?api_key=#{ENV["GIPHY_API_KEY"]}&q=#{summary}&limit=1"
       JSON.parse(response.body, symbolize_names: true)
     end
 
    render json: GifSerializer.new(Gif.all)
+
+
   end
 
 private
