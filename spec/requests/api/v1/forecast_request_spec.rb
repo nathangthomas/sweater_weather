@@ -25,7 +25,6 @@ describe 'ForecastController' do
     forecast = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
-    binding.pry
     expect(forecast.todays_high).to eq(forecast_params[:todays_high])
   end
 

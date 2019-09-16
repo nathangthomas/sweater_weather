@@ -11,6 +11,10 @@ class Api::V1::ForecastController < ApplicationController
 end
 
 
+private
+
+#add search params for locaton to controller to allow user to search by location
+
 
 #
 #   def index
