@@ -1,6 +1,6 @@
-class CreateGiphies < ActiveRecord::Migration[5.2]
+class CreateGifs < ActiveRecord::Migration[5.2]
   def change
-    create_table :giphies do |t|
+    create_table :gifs do |t|
       t.string :name
       t.string :url
 
