@@ -1,6 +1,8 @@
 class Api::V1::GifsController < ApplicationController
 
   def index
+    ForecastService.new(@coordinates)
+binding.pry
    render json: GifSerializer.new(Gif.all)
   end
 

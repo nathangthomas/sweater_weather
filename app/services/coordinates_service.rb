@@ -21,7 +21,7 @@ private
   def conn
     @_conn ||= Faraday.new(url: "https://maps.googleapis.com") do |faraday|
       faraday.params["key"] = ENV["GOOGLE_API_KEY"]
-      faraday.params["address"] = 'denver'
+      faraday.params["address"] = @location
       #replace 'denver' with variable for dynamic forcast search
       faraday.adapter Faraday.default_adapter
     end
